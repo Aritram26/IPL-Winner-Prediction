@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPL Winner Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>IPL Winner Prediction - BY Aritram Sarkar</h1>
+        <form method="POST">
+            <div class="input-group">
+                <label for="team1">Team 1:</label>
+                <input type="text" id="team1" name="team1" required>
+            </div>
+            <div class="input-group">
+                <label for="team2">Team 2:</label>
+                <input type="text" id="team2" name="team2" required>
+            </div>
+            <div class="input-group">
+                <label for="toss_winner">Toss Winner:</label>
+                <input type="text" id="toss_winner" name="toss_winner" required>
+            </div>
+            <div class="input-group">
+                <label for="toss_decision">Toss Decision:</label>
+                <select id="toss_decision" name="toss_decision" required>
+                    <option value="">Select</option>
+                    <option value="bat">Bat</option>
+                    <option value="field">Field</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label for="venue">Venue:</label>
+                <input type="text" id="venue" name="venue" required>
+            </div>
+            <div class="input-group">
+                <label for="home_win_percentage">Home Win Percentage:</label>
+                <input type="number" id="home_win_percentage" name="home_win_percentage" step="0.1" required>
+            </div>
+            <div class="input-group">
+                <label for="away_win_percentage">Away Win Percentage:</label>
+                <input type="number" id="away_win_percentage" name="away_win_percentage" step="0.1" required>
+            </div>
+            <button type="submit">Predict Winner</button>
+        </form>
+        {% if prediction %}
+        <h2>The predicted winner is: {{ prediction }}</h2>
+        {% endif %}
+    </div>
+</body>
+</html>
